@@ -1,0 +1,4 @@
+{
+    "python.formatting.blackPath": "/Users/hajime/Library/Python/3.8/bin/black",
+    "python.formatting.provider": "black"
+}
