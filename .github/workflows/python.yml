@@ -62,6 +62,9 @@ jobs:
       - name: Create Release Note
         id: create_relase_note
         run: |
+          echo ${GITHUB_REPOSITORY}
+          echo ${{steps.get-version.outputs.tagVersion}}
+
           wget -q -O github-changelog-generator.jar https://github.com/spring-io/github-changelog-generator/releases/download/v0.0.5/github-changelog-generator.jar
           chmod +x github-changelog-generator.jar
           java -jar github-changelog-generator.jar \
