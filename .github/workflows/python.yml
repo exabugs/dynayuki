@@ -35,4 +35,6 @@ jobs:
 
       - name: Run Python
         working-directory: src
-        run: python python-sample.py
+        run: |
+          python python-sample.py
+          gh release create "v1.0.0"

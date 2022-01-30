@@ -13,3 +13,8 @@ $ git config --global user.email hogehoge@gmail.com
 
 - python  
   https://pyteyon.hatenablog.com/entry/2020/10/04/052716
+
+## GitHub Actions
+
+- コマンド  
+  https://docs.github.com/ja/actions/using-workflows/workflow-commands-for-github-actions
