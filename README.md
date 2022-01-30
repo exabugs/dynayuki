@@ -5,8 +5,8 @@
 ## Git
 
 ```
-$ git config --global user.name exabugs
-$ git config --global user.email exabugs@gmail.com
+$ git config --global user.name hogehoge
+$ git config --global user.email hogehoge@gmail.com
 ```
 
 ## フォーマッター
