@@ -35,8 +35,5 @@
   "onboarding": false,
   "platform": "github",
   "includeForks": true,
-  "dependencyDashboard": true,
-  "repositories": [
-    "exabugs/dynayuki"
-  ]
+  "dependencyDashboard": true
 }
