@@ -36,6 +36,7 @@
   "platform": "github",
   "includeForks": true,
   "dependencyDashboard": true,
+  "prHourlyLimit": 0,
   "repositories": [
     "exabugs/dynayuki"
   ]
