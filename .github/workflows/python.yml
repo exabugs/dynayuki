@@ -2,11 +2,8 @@ name: python
 
 on:
   push:
-    branches: [main]
-    # paths: [src]
-  pull_request:
-    branches: [main]
-    paths: [src]
+    tags:
+      - "v*"
 
 jobs:
   python:
@@ -39,7 +36,14 @@ jobs:
         working-directory: src
         run: |
           python python-sample.py
-          gh release create "v1.0.0"
+
+      # tag → release
+      # http://skawashima.com/blog/2019/12/github-actions-auto-release/
+      - name: Release
+        working-directory: src
+        run: |
+          echo ${{ github.ref }}
+          gh release create ${{ github.ref }}
 
           # Upload all tarballs in a directory as release assets
           # $ gh release create v1.2.3 ./dist/*.tgz
