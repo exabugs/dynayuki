@@ -8,7 +8,7 @@
         "major"
       ],
       "labels": [
-        "Semver-Major"
+        "Update-Major"
       ]
     },
     {
@@ -16,7 +16,7 @@
         "minor"
       ],
       "labels": [
-        "Semver-Minor"
+        "Update-Minor"
       ]
     },
     {
@@ -24,7 +24,7 @@
         "patch"
       ],
       "labels": [
-        "Semver-Patch"
+        "Update-Patch"
       ],
       "ignoreTests": true
     }
