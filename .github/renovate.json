@@ -35,5 +35,6 @@
   "onboarding": false,
   "platform": "github",
   "includeForks": true,
-  "dependencyDashboard": true
+  "dependencyDashboard": true,
+  "autodiscover": true
 }
