@@ -2,7 +2,7 @@ name: renovate
 
 on:
   schedule:
-    - cron: "0 21 * * *"
+    - cron: "1 21 * * *"
   push:
     branches: [main]
   pull_request:
