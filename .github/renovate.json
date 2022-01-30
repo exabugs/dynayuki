@@ -5,7 +5,26 @@
   "packageRules": [
     {
       "matchUpdateTypes": [
+        "major"
+      ],
+      "labels": [
+        "Semver-Major"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "labels": [
+        "Semver-Minor"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
         "patch"
+      ],
+      "labels": [
+        "Semver-Patch"
       ],
       "ignoreTests": true
     }
