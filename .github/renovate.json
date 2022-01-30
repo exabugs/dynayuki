@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "timezone": "Asia/Tokyo",
+  "automerge": true,
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "ignoreTests": true
+    }
+  ],
+  "branchPrefix": "renovate/",
+  "dryRun": true,
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+  "onboarding": false,
+  "platform": "github",
+  "includeForks": true,
+  "dependencyDashboard": true
+}
