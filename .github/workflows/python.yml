@@ -1,4 +1,4 @@
-name: terraform
+name: python
 
 on:
   push:
