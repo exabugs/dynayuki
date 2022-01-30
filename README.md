@@ -1,5 +1,7 @@
 # dynayuki
 
+[![renovate](https://github.com/exabugs/dynayuki/actions/workflows/renovate.yml/badge.svg)](https://github.com/exabugs/dynayuki/actions/workflows/renovate.yml)
+
 ## Git
 
 ```
