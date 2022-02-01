@@ -3,10 +3,10 @@ name: renovate
 on:
   schedule:
     - cron: "0 21 * * *"
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  # push:
+  #   branches: [main]
+  # pull_request:
+  #   branches: [main]
 
 jobs:
   renovate:
