@@ -1,9 +1,11 @@
 name: python
 
 on:
-  push:
-    tags:
-      - "v*"
+  # push:
+  #   tags:
+  #     - "v*"
+  release:
+    type: published
 
 jobs:
   python:
@@ -37,12 +39,12 @@ jobs:
         run: |
           python python-sample.py
 
-      # tag → release
-      # http://skawashima.com/blog/2019/12/github-actions-auto-release/
-      - name: Release
-        run: |
-          echo ${{ github.ref }}
-          gh release create ${{ github.ref }} --generate-notes
+      # # tag → release
+      # # http://skawashima.com/blog/2019/12/github-actions-auto-release/
+      # - name: Release
+      #   run: |
+      #     echo ${{ github.ref }}
+      #     # gh release create ${{ github.ref }} --generate-notes
 
-      #     # Upload all tarballs in a directory as release assets
-      #     # $ gh release create v1.2.3 ./dist/*.tgz
+      # #     # Upload all tarballs in a directory as release assets
+      # #     # $ gh release create v1.2.3 ./dist/*.tgz
