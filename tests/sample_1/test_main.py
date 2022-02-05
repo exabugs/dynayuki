@@ -1,8 +1,8 @@
-from sample_1.main import func
+from sample_1 import plus
 
 
-def test_func():
+def test_plus():
     value1 = 1
     value2 = 2
     expected = 3
-    assert func(value1, value2) == expected
+    assert plus(value1, value2) == expected
