@@ -1,3 +1,7 @@
 {
-    "python.formatting.provider": "black"
+  "git.autofetch": true,
+  "git.autoStash": true,
+  "python.formatting.provider": "black",
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
 }

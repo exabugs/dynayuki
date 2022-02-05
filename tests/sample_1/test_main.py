@@ -1,4 +1,4 @@
-from main import func
+from sample_1.main import func
 
 
 def test_func():
