@@ -1,3 +1,4 @@
 # pip install -r requirements.txt
 
 numpy ==1.22.2
+black ==21.12b0
