@@ -39,8 +39,12 @@ jobs:
               }
             }
 
-      - name: aaaaa
+      # - name: aaaaa
+      #   run: |
+      #     # echo ${{ steps.changes.outputs }}
+      #     # echo ${{ fromJSON(steps.changes.outputs) }}
+      #     echo ${{ steps.changes.outputs.changes }}
+
+      - name: Run Python
         run: |
-          # echo ${{ steps.changes.outputs }}
-          # echo ${{ fromJSON(steps.changes.outputs) }}
           echo ${{ steps.changes.outputs.changes }}
