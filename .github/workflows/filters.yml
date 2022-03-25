@@ -53,5 +53,5 @@ jobs:
       - name: echo
         run: |
           echo ${{ steps.changes.outputs }}
-          echo ${{ steps.changes.changes }}
+          echo ${{ fromJSON(steps.changes.outputs) }}
           echo ${{ steps.changes.outputs.changes }}
