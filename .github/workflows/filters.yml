@@ -15,25 +15,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # #
-      # # target apps
-      # #　(デリミタ:/)
-      # - name: target apps
-      #   run: |
-      #     APPS+=/tf-amazon-business
-      #     APPS+=/tf-esign
-      #     APPS+=/tf-mobile
-      #     APPS+=/tf-svf-cloud
-      #     APPS+=/tf-teams
-      #     # APPS+=/tf-amazon-business2
-      #     echo "APPS=${APPS}" >> $GITHUB_ENV
-
       # どのファイルに変更があったか
       # https://github.com/dorny/paths-filter
       - uses: dorny/paths-filter@v2
         id: changes
         with:
           filters: .github/filters.yaml
+
+      - name: list labels
+        uses: actions/github-script@v6
+        id: lebels
+        with:
+          script: |
+            console.log(context.steps.changes.outputs)
+            console.log(steps.changes.outputs)
 
       #
       # terraform plan
