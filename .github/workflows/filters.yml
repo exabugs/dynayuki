@@ -37,16 +37,15 @@ jobs:
                   console.log(context.steps.changes.outputs)
                 }
               }
-            console.log(steps.changes.outputs)
             }
 
-      - name: list labels
-        uses: actions/github-script@v6
-        with:
-          script: |
-            console.log(process.env.app)
-        env:
-          app: ${{ fromJSON(steps.changes.outputs) }}
+      # - name: list labels
+      #   uses: actions/github-script@v6
+      #   with:
+      #     script: |
+      #       console.log(process.env.app)
+      #   env:
+      #     app: ${{ fromJSON(steps.changes.outputs) }}
 
       #
       # terraform plan
@@ -54,3 +53,5 @@ jobs:
       - name: echo
         run: |
           echo ${{ steps.changes.outputs }}
+          echo ${{ steps.changes.changes }}
+          echo ${{ steps.changes.outputs.changes }}
