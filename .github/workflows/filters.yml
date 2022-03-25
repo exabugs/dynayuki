@@ -39,18 +39,7 @@ jobs:
               }
             }
 
-      # - name: list labels
-      #   uses: actions/github-script@v6
-      #   with:
-      #     script: |
-      #       console.log(process.env.app)
-      #   env:
-      #     app: ${{ fromJSON(steps.changes.outputs) }}
-
-      #
-      # terraform plan
-      #
-      - name: echo
+      - name: aaaaa
         run: |
           # echo ${{ steps.changes.outputs }}
           # echo ${{ fromJSON(steps.changes.outputs) }}
