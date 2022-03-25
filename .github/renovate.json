@@ -1,34 +1,26 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:base"],
+  "labels": ["chore"],
   "timezone": "Asia/Tokyo",
-  "automerge": true,
   "packageRules": [
     {
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "labels": [
-        "Update-Major"
-      ]
+      "matchUpdateTypes": ["major"],
+      "labels": ["Update-Major"]
     },
     {
-      "matchUpdateTypes": [
-        "minor"
-      ],
-      "labels": [
-        "Update-Minor"
-      ]
+      "matchUpdateTypes": ["minor"],
+      "labels": ["Update-Minor"]
     },
     {
-      "matchUpdateTypes": [
-        "patch"
-      ],
-      "labels": [
-        "Update-Patch"
-      ],
+      "matchUpdateTypes": ["patch"],
+      "labels": ["Update-Patch"],
+      "automerge": true,
+      "ignoreTests": true
+    },
+    {
+      "matchPackageNames": ["renovatebot/github-action"],
+      "automerge": true,
       "ignoreTests": true
     }
   ],
@@ -40,7 +32,5 @@
   "includeForks": true,
   "dependencyDashboard": true,
   "prHourlyLimit": 0,
-  "repositories": [
-    "exabugs/dynayuki"
-  ]
+  "repositories": ["exabugs/dynayuki"]
 }
