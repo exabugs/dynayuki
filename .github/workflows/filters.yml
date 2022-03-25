@@ -21,9 +21,7 @@ jobs:
             test1
             test2
           )
-
           filters=.github/filters.yaml
-
           for app in ${apps[@]}; do
             echo "$app:" >> $filters
             echo "  - src/$app/**" >> $filters
@@ -40,7 +38,7 @@ jobs:
       - name: terraform
         run: |
           echo ${{ steps.changes.outputs.changes }}
-          apps=( `echo ${{ steps.changes.outputs.changes }} | sed -e '/[,\[\]]//g'`)
+          apps=( `echo ${{ steps.changes.outputs.changes }} | sed -e 's/[,\[\]]/ /g'`)
           for app in ${apps[@]}; do
             echo $app
           done
