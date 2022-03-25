@@ -30,7 +30,7 @@ jobs:
       - uses: dorny/paths-filter@v2
         id: changes
         with:
-          filters: ./.github/filters.yaml
+          filters: filters.yaml
 
       #
       # terraform plan
