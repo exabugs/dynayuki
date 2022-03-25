@@ -38,7 +38,8 @@ jobs:
       - name: terraform
         run: |
           echo ${{ steps.changes.outputs.changes }}
-          apps=( $(echo ${{ steps.changes.outputs.changes }} | sed -e "s/[,\[\]]/ /g"))
+          apps=${{ steps.changes.outputs.changes }}
+          # apps=( $(echo '${{ steps.changes.outputs.changes }}' | sed -e "s/[,\[\]]/ /g"))
           echo $apps
           for app in ${apps[@]}; do
             echo $app
