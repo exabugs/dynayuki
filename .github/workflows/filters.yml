@@ -30,7 +30,6 @@ jobs:
       - uses: dorny/paths-filter@v2
         id: changes
         with:
-          working-directory: ""
           filters: .github/filters.yaml
 
       #
