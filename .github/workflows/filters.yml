@@ -40,6 +40,15 @@ jobs:
             console.log(steps.changes.outputs)
             }
 
+      - name: list labels
+        uses: actions/github-script@v6
+        id: lebels
+        with:
+          script: |
+            console.log(process.env.app)
+        env:
+          app: ${{ steps.changes.outputs }}
+
       #
       # terraform plan
       #
