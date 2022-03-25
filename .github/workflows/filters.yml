@@ -50,8 +50,8 @@ jobs:
       #
       # terraform plan
       #
-      # - name: echo
-      #   run: |
-      #     echo ${{ steps.changes.outputs }}
-      #     # echo ${{ fromJSON(steps.changes.outputs) }}
-      #     echo ${{ steps.changes.outputs.changes }}
+      - name: echo
+        run: |
+          # echo ${{ steps.changes.outputs }}
+          # echo ${{ fromJSON(steps.changes.outputs) }}
+          echo ${{ steps.changes.outputs.changes }}
