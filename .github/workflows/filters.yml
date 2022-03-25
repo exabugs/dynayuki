@@ -46,7 +46,7 @@ jobs:
           script: |
             console.log(process.env.app)
         env:
-          app: ${{ steps.changes.outputs }}
+          app: ${{ fromJson(steps.changes.outputs) }}
 
       #
       # terraform plan
