@@ -28,8 +28,11 @@ jobs:
         with:
           script: |
             if (context) {
+              console.log("context")
+              console.log(JSON.stringify(context))
               if (context.steps) {
-                console.log(context.steps)
+                console.log("context.steps")
+                console.log(JSON.stringify(context.steps))
                 if (context.steps.changes) {
                   console.log(context.steps.changes.outputs)
                 }
