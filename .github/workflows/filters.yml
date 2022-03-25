@@ -16,16 +16,18 @@ jobs:
         uses: actions/checkout@v2
 
       - name: list labels
-        working-directory: .github
         run: |
-          APPS=(
+          apps=(
             test1
             test2
           )
-          for app in ${APPS[@]}; do
-            echo "$app:" >> filters.yaml
-            echo "  - src/$app/**" >> filters.yaml
-            echo "  - src/sample_1/**" >> filters.yaml
+
+          filters=.github/filters.yaml
+
+          for app in ${apps[@]}; do
+            echo "$app:" >> $filters
+            echo "  - src/$app/**" >> $filters
+            echo "  - src/sample_1/**" >> $filters
           done
 
       # どのファイルに変更があったか
@@ -35,29 +37,33 @@ jobs:
         with:
           filters: .github/filters.yaml
 
-      - name: list labels
-        uses: actions/github-script@v6
-        id: lebels
-        with:
-          script: |
-            if (context) {
-              console.log("context")
-              console.log(JSON.stringify(context))
-              if (context.steps) {
-                console.log("context.steps")
-                console.log(JSON.stringify(context.steps))
-                if (context.steps.changes) {
-                  console.log(context.steps.changes.outputs)
-                }
-              }
-            }
+      - name: terraform
+        run: |
+          echo ${{ steps.changes.outputs.changes }}
+          apps=( `echo ${{ steps.changes.outputs.changes }} | sed -e '/[,\[\]]//g'`)
+          for app in ${apps[@]}; do
+            echo $app
+          done
+
+      # - name: list labels
+      #   uses: actions/github-script@v6
+      #   id: lebels
+      #   with:
+      #     script: |
+      #       if (context) {
+      #         console.log("context")
+      #         console.log(JSON.stringify(context))
+      #         if (context.steps) {
+      #           console.log("context.steps")
+      #           console.log(JSON.stringify(context.steps))
+      #           if (context.steps.changes) {
+      #             console.log(context.steps.changes.outputs)
+      #           }
+      #         }
+      #       }
 
       # - name: aaaaa
       #   run: |
       #     # echo ${{ steps.changes.outputs }}
       #     # echo ${{ fromJSON(steps.changes.outputs) }}
       #     echo ${{ steps.changes.outputs.changes }}
-
-      - name: Run Python
-        run: |
-          echo ${{ steps.changes.outputs.changes }}
