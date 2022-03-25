@@ -27,8 +27,15 @@ jobs:
         id: lebels
         with:
           script: |
-            console.log(context.steps.changes.outputs)
+            if (context) {
+              if (context.steps) {
+                console.log(context.steps)
+                if (context.steps.changes) {
+                  console.log(context.steps.changes.outputs)
+                }
+              }
             console.log(steps.changes.outputs)
+            }
 
       #
       # terraform plan
