@@ -1,0 +1,41 @@
+name: filters
+
+on:
+  issues:
+    types:
+      - labeled
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # #
+      # # target apps
+      # #　(デリミタ:/)
+      # - name: target apps
+      #   run: |
+      #     APPS+=/tf-amazon-business
+      #     APPS+=/tf-esign
+      #     APPS+=/tf-mobile
+      #     APPS+=/tf-svf-cloud
+      #     APPS+=/tf-teams
+      #     # APPS+=/tf-amazon-business2
+      #     echo "APPS=${APPS}" >> $GITHUB_ENV
+
+      # どのファイルに変更があったか
+      # https://github.com/dorny/paths-filter
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          working-directory: ""
+          filters: .github/filters.yaml
+
+      #
+      # terraform plan
+      #
+      - name: echo
+        run: |
+          echo ${{ steps.changes.outputs }}
