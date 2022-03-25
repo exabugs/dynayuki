@@ -12,6 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       # #
       # # target apps
       # #　(デリミタ:/)
@@ -30,8 +33,7 @@ jobs:
       - uses: dorny/paths-filter@v2
         id: changes
         with:
-          working-directory: "."
-          filters: filters.yaml
+          filters: .github/filters.yaml
 
       #
       # terraform plan
