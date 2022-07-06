@@ -37,7 +37,7 @@ jobs:
           sed -i -e "s/version: ${VER}/version: ${TAG}/g" Chart.yaml
           git checkout main
           git add Chart.yaml
-          git commit -m "Chart version ${TAG}."
+          git commit -m "Chart version ${TAG}"
 
           # git push --delete origin ${TAG}
           # git tag -d ${TAG}
