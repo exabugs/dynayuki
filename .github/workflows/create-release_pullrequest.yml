@@ -26,7 +26,7 @@ jobs:
 
       - run: |
           TAG=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
-          echo $TAG
+          TAG=$(echo $TAG | sed 's/v//')
           echo "TAG=${TAG}" >> $GITHUB_ENV
 
       - name: pr
@@ -38,10 +38,4 @@ jobs:
           git checkout main
           git add Chart.yaml
           git commit -m "Chart version ${TAG}"
-
-          # git push --delete origin ${TAG}
-          # git tag -d ${TAG}
-          # git tag ${TAG}
-          # git push origin HEAD --tags
-
           git push origin HEAD
