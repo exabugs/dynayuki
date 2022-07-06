@@ -12,7 +12,14 @@ jobs:
       contents: write
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      USER_EMAIL: github-actions@users.noreply.github.com
+      USER_NAME: github-actions
+
     steps:
+      - run: |
+          git config --global user.email "${USER_EMAIL}"
+          git config --global user.name "${USER_NAME}"
+
       - uses: actions/checkout@v3
       - run: |
           TAG=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
