@@ -40,5 +40,6 @@ jobs:
           git commit -m 'Chart version ${TAG}.'
 
           git push --delete origin ${TAG}
+          git tag -d ${TAG}
           git tag ${TAG}
           git push origin --tags
