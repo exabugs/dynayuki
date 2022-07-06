@@ -34,4 +34,4 @@ jobs:
           sed -i -e "s/version: ${VER}/version: ${TAG}/g" Chart.yaml
           git add Chart.yaml
           git commit -m 'Chart patch version increment.'
-          git push
+          git push origin HEAD
