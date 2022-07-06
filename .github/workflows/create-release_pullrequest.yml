@@ -1,0 +1,30 @@
+name: create release pull-request
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  create-release-pull-request:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          TAG=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
+          echo $TAG
+          echo "TAG=${TAG}" >> $GITHUB_ENV
+
+      - name: pr
+        working-directory: helm
+        run: |
+          VER=$(egrep "^version: " Chart.yaml | cut -d ' ' -f 2)
+          echo $VER
+          sed -i -e "s/version: ${VER}/version: ${TAG}/g" Chart.yaml
+          git add Chart.yaml
+          git commit -m 'Chart patch version increment.'
+          git push
