@@ -27,6 +27,7 @@ jobs:
       - run: |
           TAG=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
           TAG=$(echo $TAG | sed 's/v//')
+          echo $TAG
           echo "TAG=${TAG}" >> $GITHUB_ENV
 
       - name: pr
