@@ -24,17 +24,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: |
+      - name: GITHUB_REF
+        run: |
           TAG=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
           TAG=$(echo $TAG | sed 's/v//')
           echo $TAG
           echo "TAG=${TAG}" >> $GITHUB_ENV
 
-      - name: pr
+      - name: Chart.yaml
         working-directory: helm
         run: |
           VER=$(egrep "^version: " Chart.yaml | cut -d ' ' -f 2)
           echo $VER
+          echo "VER=${VER}" >> $GITHUB_ENV
+
+      - name: push
+        if: env.VER != env.TAG
+        working-directory: helm
+        run: |
           sed -i -e "s/version: ${VER}/version: ${TAG}/g" Chart.yaml
           git checkout main
           git add Chart.yaml
