@@ -2,7 +2,7 @@ name: create release pull-request
 
 on:
   release:
-    types: [published]
+    types: [prereleased]
 
 jobs:
   create-release-pull-request:
@@ -26,8 +26,8 @@ jobs:
 
       - name: GITHUB_REF
         run: |
-          TAG=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
-          TAG=$(echo $TAG | sed 's/v//')
+          TAG=${{ github.event.release.name }}
+          TAG=$(echo $TAG | sed 's/[^0-9.]//g')
           echo $TAG
           echo "TAG=${TAG}" >> $GITHUB_ENV
 
