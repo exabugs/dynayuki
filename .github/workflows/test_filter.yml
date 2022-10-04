@@ -1,0 +1,47 @@
+name: Python
+
+on:
+  # push:
+  #   tags:
+  #     - "v*"
+  # release:
+  #   types: [published]
+
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  python:
+    name: python
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          # token: ${{ secrets.GITHUB_TOKEN }}
+          filters: |
+            src:
+             - 'src/**'
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+          architecture: "x64"
+
+      - name: Get Python version
+        run: python -V
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
