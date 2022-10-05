@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  python:
-    name: python
+  filters:
+    name: filters
     runs-on: ubuntu-latest
 
     defaults:
