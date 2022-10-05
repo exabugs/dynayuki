@@ -1,4 +1,4 @@
-name: filters
+name: paths-filter
 
 on:
   # push:
@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  filters:
-    name: filters
+  paths-filter:
+    name: paths-filter
     runs-on: ubuntu-latest
 
     defaults:
